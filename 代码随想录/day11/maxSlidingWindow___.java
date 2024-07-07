@@ -1,9 +1,8 @@
 package 代码随想录.day11;
 
 import java.util.ArrayDeque;
-import java.util.Queue;
 
-public class maxSlidingWindow {
+public class maxSlidingWindow___ {
     public static int[] maxSlidingWindow(int[] nums, int k) {
         int[] res = new int[nums.length - k + 1];
         //存放元素索引
