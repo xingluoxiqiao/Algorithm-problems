@@ -1,7 +1,6 @@
 package 代码随想录;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class TreeNode {
     public TreeNode left;
@@ -55,5 +54,30 @@ public class TreeNode {
             }
         }
         return root;
+    }
+
+    public static String treeToLevelOrderString(TreeNode root) {
+        if (root == null) {
+            return "";
+        }
+
+        List<String> result = new ArrayList<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node != null) {
+                result.add(String.valueOf(node.val));
+                if(node.left != null) {
+                    queue.add(node.left);
+                }else result.add("null");
+                if(node.right != null) {
+                    queue.add(node.right);
+                }else result.add("null");
+            }
+        }
+
+        return String.join(",", result);
     }
 }
